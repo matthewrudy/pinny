@@ -1,0 +1,5 @@
+pinny
+=====
+
+Pinny.to_pinyin("ni2 hao3")
+=> "Ní hǎo"
