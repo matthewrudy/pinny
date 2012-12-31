@@ -1,6 +1,3 @@
-
-
-
 require "rubygems"
 require "rubygems/package_task"
 require "rdoc/task"
@@ -24,7 +21,7 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "pinny"
-  s.version           = "0.1.0"
+  s.version           = "0.1.1"
   s.summary           = "Pinyin conversion tool"
   s.author            = "Matthew Rudy Jacobs"
   s.email             = "MatthewRudyJacobs@gmail.com"
@@ -53,7 +50,7 @@ end
 # be automatically building a gem for this project. If you're not
 # using GitHub, edit as appropriate.
 #
-# To publish your gem online, install the 'gemcutter' gem; Read more 
+# To publish your gem online, install the 'gemcutter' gem; Read more
 # about that here: http://gemcutter.org/pages/gem_docs
 Gem::PackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
@@ -74,7 +71,7 @@ task :package => :gemspec
 
 # Generate documentation
 RDoc::Task.new do |rd|
-  
+
   rd.rdoc_files.include("lib/**/*.rb")
   rd.rdoc_dir = "rdoc"
 end
