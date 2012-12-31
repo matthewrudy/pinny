@@ -1,5 +1,7 @@
+# encoding: UTF-8
+
 module Pinny
-  
+
   TONES = {
     "a" => [nil, "ā", "á", "ǎ", "à"],
     "e" => [nil, "ē", "é", "ě", "è"],
@@ -8,7 +10,7 @@ module Pinny
     "u" => [nil, "ū", "ú", "ǔ", "ù"],
     "v" => [nil, "ǖ", "ǘ", "ǚ", "ǜ"]
   }
-  
+
   module ModuleMethods
     def to_pinyin(string)
       string.split(/\b/).map do |word|
@@ -19,19 +21,19 @@ module Pinny
         end
       end.join("")
     end
-  
+
     def is_pinyin?(word)
       word =~ /^\w+[1-5]$/
     end
-  
+
     def extract_tone(word)
       tone = word.scan(/[1-4]$/).first
-    
+
       word.sub!(/\d$/, "")
-    
+
       tone && tone.to_i
     end
-  
+
     def lowest_vowel(word)
       case word
       when /a/i then "a"
@@ -42,7 +44,7 @@ module Pinny
       when /v/i then "v"
       end
     end
-  
+
     def add_tone_mark(word)
       if t = extract_tone(word)
         v = lowest_vowel(word)
@@ -53,8 +55,8 @@ module Pinny
       end
     end
   end
-  
+
   extend ModuleMethods
-  
+
 end
 
