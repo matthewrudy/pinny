@@ -1,6 +1,5 @@
 require "rubygems"
 require "rubygems/package_task"
-require "rdoc/task"
 
 require "rake/testtask"
 Rake::TestTask.new do |t|
@@ -8,7 +7,6 @@ Rake::TestTask.new do |t|
   t.test_files = FileList["test/**/*_test.rb"]
   t.verbose = true
 end
-
 
 task :default => ["test"]
 
@@ -64,21 +62,9 @@ task :gemspec do
   File.open(file, "w") {|f| f << spec.to_ruby }
 end
 
-# If you don't want to generate the .gemspec file, just remove this line. Reasons
-# why you might want to generate a gemspec:
-#  - using bundler with a git source
-#  - building the gem without rake (i.e. gem build blah.gemspec)
-#  - maybe others?
 task :package => :gemspec
 
-# Generate documentation
-RDoc::Task.new do |rd|
-
-  rd.rdoc_files.include("lib/**/*.rb")
-  rd.rdoc_dir = "rdoc"
-end
-
-desc 'Clear out RDoc and generated packages'
-task :clean => [:clobber_rdoc, :clobber_package] do
+desc 'Clear out gemspec'
+task :clean do
   rm "#{spec.name}.gemspec"
 end
