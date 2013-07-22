@@ -21,11 +21,13 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "pinny"
-  s.version           = "0.1.1"
+  s.version           = "0.1.2"
   s.summary           = "Pinyin conversion tool"
   s.author            = "Matthew Rudy Jacobs"
   s.email             = "MatthewRudyJacobs@gmail.com"
   s.homepage          = "http://github.com/matthewrudy/pinny"
+
+  s.license           = "MIT"
 
   s.has_rdoc          = true
   # You should probably have a README of some kind. Change the filename
@@ -42,7 +44,8 @@ spec = Gem::Specification.new do |s|
   # s.add_dependency("some_other_gem", "~> 0.1.0")
 
   # If your tests use any gems, include them here
-  # s.add_development_dependency("mocha") # for example
+  s.add_development_dependency("activesupport")
+  s.add_development_dependency("rake")
 end
 
 # This task actually builds the gem. We also regenerate a static
