@@ -3,13 +3,13 @@
 require 'test_helper'
 require 'pinny'
 
-class PinnyTest < ActiveSupport::TestCase
+class PinnyTest < Test::Unit::TestCase
 
-  test "to_pinyin - simple" do
+  def test_to_pinyin__simple
     assert_equal "Ní hǎo", Pinny.to_pinyin("Ni2 hao3")
   end
 
-  test "to_pinyin - capital A" do
+  def test_to_pinyin__capital_A
     assert_equal "Ai", Pinny.to_pinyin("Ai4")
   end
 
